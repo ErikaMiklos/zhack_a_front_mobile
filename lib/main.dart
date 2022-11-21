@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zhack_a_front_mobile/pages/home.page.dart';
+import 'package:zhack_a_front_mobile/ui/pages/home.page.dart';
 
 void main() {
   runApp(const MyApp());
