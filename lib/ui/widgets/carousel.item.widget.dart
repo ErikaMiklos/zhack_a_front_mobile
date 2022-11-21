@@ -16,17 +16,24 @@ class CarouselItemWidget extends StatelessWidget {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
-        color: Colors.teal,
+        color:  Theme.of(context).primaryColor,
         elevation: 3,
-        child: Align(
-          alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(titre, style: Theme.of(context).textTheme.headline6,),
-              Text(ville, style: Theme.of(context).textTheme.headline5,),
-            ],
-          )
+        child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Colors.white, Theme.of(context).primaryColor]
+                )
+            ),
+          child: Align(
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(titre, style: Theme.of(context).textTheme.headline6,),
+                Text(ville, style: Theme.of(context).textTheme.headline5,),
+              ],
+            )
+          ),
         )
       ),
     );
