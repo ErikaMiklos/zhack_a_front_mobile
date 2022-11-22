@@ -18,7 +18,7 @@ class RootView extends StatelessWidget {
             theme: state.themeData,
             routes: {
               "/": (context) => const HomePage(),
-              "/": (context) => const LoginPage(),
+              "/login": (context) => const LoginPage(),
               "/festivals": (context) => const ListPage(),
             },
             initialRoute: "/",
