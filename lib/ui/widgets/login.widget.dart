@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/list.page.dart';
+
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
 
@@ -54,21 +56,21 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text('Forgot Password',),
-            ),
+            const SizedBox(height: 30,),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   child: const Text('Login'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
-                  },
+                    nameController.clear();
+                    passwordController.clear();
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ListPage()),
+                    );
+                  }
                 )
             ),
             Row(
