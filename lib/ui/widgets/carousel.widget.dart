@@ -11,7 +11,6 @@ class CarouselWidget extends StatefulWidget {
 
 class _CarouselWidgetState extends State<CarouselWidget> {
 
-
   @override
   Widget build(BuildContext context) {
     List<dynamic> festivalSlides = [
@@ -30,7 +29,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
       },
         options: CarouselOptions(
           height: 200,
-          autoPlay: true,
+          autoPlay: false,
           autoPlayInterval: const Duration(seconds: 3),
           autoPlayAnimationDuration: const Duration(milliseconds: 600)
         ),
