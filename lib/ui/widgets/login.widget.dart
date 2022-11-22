@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pages/list.page.dart';
+import '../pages/listfestivals.page.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -68,7 +68,7 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                     Navigator.pop(context);
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ListPage()),
+                        MaterialPageRoute(builder: (context) => ListFestivalsPage()),
                     );
                   }
                 )

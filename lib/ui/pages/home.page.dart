@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zhack_a_front_mobile/ui/widgets/carousel.widget.dart';
 
 import '../../bloc/theme.bloc.dart';
-import 'list.page.dart';
+import 'listfestivals.page.dart';
 import 'login.page.dart';
 
 class HomePage extends StatelessWidget {
