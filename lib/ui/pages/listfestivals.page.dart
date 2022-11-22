@@ -12,7 +12,7 @@ class ListFestivalsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
-      appBar: AppBar(title: const Text("List de Festivals"),),
+      appBar: AppBar(title: const Text("Listes des Festivals"),),
       body: Column(
         children: [
           Padding(
@@ -53,7 +53,9 @@ class ListFestivalsPage extends StatelessWidget {
                     children: [
                       Text(state.errorMessage, style:CustomThemes.errorTextStyle),
                       ElevatedButton(
-                          onPressed: (){},
+                          onPressed: (){
+                            Navigator.pop(context);
+                          },
                           child: const Text("Retry")
                       )
                     ],
@@ -66,12 +68,8 @@ class ListFestivalsPage extends StatelessWidget {
                               title: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(children: [
-                                    Text(state.listFestivals.items[index].login,
-                                      style: Theme.of(context).textTheme.headline6,),
-                                  ],
-                                  ),
-                                  CircleAvatar(child: Text("${state.listFestivals.items[index].score}"),)
+                                  Text(state.listFestivals.items[index].login,
+                                  style: Theme.of(context).textTheme.headline6,),
                                 ],
                               ),
                             ),

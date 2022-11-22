@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zhack_a_front_mobile/bloc/theme.bloc.dart';
 import 'package:zhack_a_front_mobile/ui/pages/root.view.dart';
 
+import 'bloc/festivals.bloc.dart';
+import 'bloc/login.bloc.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,6 +19,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ThemeBloc()),
+        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => FestivalsBloc()),
       ],
       child: const RootView(),
     );
