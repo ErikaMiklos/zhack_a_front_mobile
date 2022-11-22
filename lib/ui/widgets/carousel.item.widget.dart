@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class CarouselItemWidget extends StatelessWidget {
   final String titre;
   final String ville;
+  final String date;
 
   const CarouselItemWidget({Key? key,
     required this.titre,
-    required this.ville
+    required this.ville,
+    required this.date
   }) : super(key: key);
 
   @override
@@ -31,6 +33,7 @@ class CarouselItemWidget extends StatelessWidget {
               children: [
                 Text(titre, style: Theme.of(context).textTheme.headline6,),
                 Text(ville, style: Theme.of(context).textTheme.headline5,),
+                Text(date, style: Theme.of(context).textTheme.headline6,),
               ],
             )
           ),

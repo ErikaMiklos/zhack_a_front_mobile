@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/theme.bloc.dart';
 import 'home.page.dart';
+import 'list.page.dart';
+import 'login.page.dart';
 
 
 class RootView extends StatelessWidget {
@@ -16,6 +18,8 @@ class RootView extends StatelessWidget {
             theme: state.themeData,
             routes: {
               "/": (context) => const HomePage(),
+              "/": (context) => const LoginPage(),
+              "/festivals": (context) => const ListPage(),
             },
             initialRoute: "/",
           );
