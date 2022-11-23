@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/festivals.bloc.dart';
 import '../themes/themes.dart';
+import 'details.page.dart';
 
 
 class ListFestivalsPage extends StatelessWidget {
@@ -88,6 +89,10 @@ class ListFestivalsPage extends StatelessWidget {
                                   Icon(Icons.arrow_right, color: Theme.of(context).primaryColor,),
                                 ],
                               ),
+                              onTap: (){Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const DetailsPage()));
+                              },
                             ),
                         separatorBuilder: (context,index){
                           return Divider(
