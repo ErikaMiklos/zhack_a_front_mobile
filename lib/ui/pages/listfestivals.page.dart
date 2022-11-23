@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:zhack_a_front_mobile/model/festivals.model.dart';
 
 import '../../bloc/festivals.bloc.dart';
 import '../themes/themes.dart';
@@ -67,42 +67,29 @@ class ListFestivalsPage extends StatelessWidget {
                   );
                 } else if(state is SearchFestivalsSuccessState){
                   return Expanded(
-                    child: ListView.separated(
-                        itemBuilder: (context, index) =>
-                            ListTile(
-                              title: Row(
-                                children: [
-                                  Icon(CupertinoIcons.heart, color: Theme.of(context).primaryColor,),
-                                  const SizedBox(width: 20,),
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        Text(state.listFestivals.items[index].login,
-                                          style: TextStyle(color: Theme.of(context).primaryColor,
-                                          fontSize: 28)),
-                                        Text(state.listFestivals.items[index].htmlUrl,
-                                            style: Theme.of(context).textTheme.bodyText2),
-                                        Text("${state.listFestivals.items[index].score}",
-                                            style: Theme.of(context).textTheme.bodyText2),
-                                      ],
-                                    ),
-                                  ),
-                                  Icon(Icons.arrow_right, color: Theme.of(context).primaryColor,),
-                                ],
-                              ),
-                              onTap: (){Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const DetailsPage()));
-                              },
+                    child: ListView.builder(
+                      itemCount: state.listFestivals.items.length,
+                      itemBuilder: (context,index) {
+                        Festival festival = state.listFestivals.items[index];
+                        return Card(
+                          child: ListTile(
+                            title: Text(state.listFestivals.items[index].login,
+                                style: TextStyle(color: Theme.of(context).primaryColor,
+                                    fontSize: 28)
                             ),
-                        separatorBuilder: (context,index){
-                          return Divider(
-                            color: Theme.of(context).primaryColor,
-                            thickness: 1,
-                            height: 2,
-                          );
-                        },
-                        itemCount: state.listFestivals.items.length
+                            subtitle: Text(state.listFestivals.items[index].htmlUrl,
+                                style: Theme.of(context).textTheme.bodyText2),
+                            leading: Text("${state.listFestivals.items[index].score}",
+                                style: Theme.of(context).textTheme.bodyText2),
+                            trailing: Icon(Icons.arrow_forward_rounded),
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailsPage(festival)));
+                            },
+                          ),
+                        );
+                      },
                     ),
                   );
                 } else {

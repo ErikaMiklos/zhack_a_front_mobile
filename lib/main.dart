@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => AuthBloc()),
         BlocProvider(create: (context) => FestivalsBloc()),
       ],
-      child: const RootView(),
+      child: RootView(),
     );
   }
 }
