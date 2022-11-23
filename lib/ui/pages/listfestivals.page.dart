@@ -78,7 +78,7 @@ class ListFestivalsPage extends StatelessWidget {
                                       children: [
                                         Text(state.listFestivals.items[index].login,
                                           style: TextStyle(color: Theme.of(context).primaryColor,
-                                          fontSize: 33)),
+                                          fontSize: 28)),
                                         Text(state.listFestivals.items[index].url,
                                             style: Theme.of(context).textTheme.bodyText2),
                                         Text("Score: ${state.listFestivals.items[index].score}",
