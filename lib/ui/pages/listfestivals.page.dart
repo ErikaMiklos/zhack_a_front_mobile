@@ -12,6 +12,7 @@ class ListFestivalsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController textEditingController = TextEditingController();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(title: const Text("Listes des Festivals"),),
       body: Column(
         children: [

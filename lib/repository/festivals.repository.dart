@@ -16,7 +16,7 @@ class FestivalsRepository {
         return throw("Err => ${response.statusCode}");
       }
     } catch(e){
-      return throw("Error => " + e.toString());
+      return throw(e.toString());
     }
   }
 }

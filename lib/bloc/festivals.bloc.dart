@@ -35,6 +35,7 @@ class FestivalsInitialState extends FestivalsState{}
 //BloC
 class FestivalsBloc extends Bloc<FestivalsEvent,FestivalsState>{
   FestivalsRepository festivalsRepository = FestivalsRepository();
+  //constructor
   FestivalsBloc() : super(FestivalsInitialState()){
     on((SearchFestivalsEvent event, emit) async{
       emit(SearchFestivalsLoadingState());
