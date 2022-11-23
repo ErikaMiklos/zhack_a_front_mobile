@@ -1,5 +1,5 @@
-class Festivals {
-  Festivals({
+class FestivalsModel {
+  FestivalsModel({
     required this.datasetid,
     required this.recordid,
     required this.fields,
@@ -12,7 +12,7 @@ class Festivals {
   late final Geometry geometry;
   late final String recordTimestamp;
 
-  Festivals.fromJson(Map<String, dynamic> json){
+  FestivalsModel.fromJson(Map<String, dynamic> json){
     datasetid = json['datasetid'];
     recordid = json['recordid'];
     fields = Fields.fromJson(json['fields']);

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 import '../../bloc/festivals.bloc.dart';
 import '../themes/themes.dart';
 import 'details.page.dart';
@@ -79,9 +80,9 @@ class ListFestivalsPage extends StatelessWidget {
                                         Text(state.listFestivals.items[index].login,
                                           style: TextStyle(color: Theme.of(context).primaryColor,
                                           fontSize: 28)),
-                                        Text(state.listFestivals.items[index].url,
+                                        Text(state.listFestivals.items[index].htmlUrl,
                                             style: Theme.of(context).textTheme.bodyText2),
-                                        Text("Score: ${state.listFestivals.items[index].score}",
+                                        Text("${state.listFestivals.items[index].score}",
                                             style: Theme.of(context).textTheme.bodyText2),
                                       ],
                                     ),
