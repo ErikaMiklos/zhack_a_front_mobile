@@ -83,6 +83,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.1"
+  flutter_social_content_share:
+    dependency: "direct main"
+    description:
+      name: flutter_social_content_share
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -156,6 +163,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  social_login_buttons:
+    dependency: "direct main"
+    description:
+      name: social_login_buttons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.7"
   source_span:
     dependency: transitive
     description:

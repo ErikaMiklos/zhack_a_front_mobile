@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../pages/listfestivals.page.dart';
 
@@ -74,6 +75,7 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                 )
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text('Does not have account?'),
                 TextButton(
@@ -81,13 +83,20 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                     'Sign in',
                     style: TextStyle(fontSize: 20),
                   ),
-                  onPressed: () {
-                    //signup screen
-                  },
-                )
+                  onPressed: () {},
+                ),
               ],
-              mainAxisAlignment: MainAxisAlignment.center,
             ),
+            const SizedBox(height: 10,),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+              SocialLoginButton(
+                buttonType: SocialLoginButtonType.facebook,
+                onPressed: () {},
+              ),
+              ]
+            )
           ],
         ));
   }

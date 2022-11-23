@@ -70,6 +70,7 @@ class ListFestivalsPage extends StatelessWidget {
                     child: ListView.builder(
                       itemCount: state.listFestivals.items.length,
                       itemBuilder: (context,index) {
+                        //instance of festival
                         Festival festival = state.listFestivals.items[index];
                         return Card(
                           child: ListTile(
@@ -81,7 +82,7 @@ class ListFestivalsPage extends StatelessWidget {
                                 style: Theme.of(context).textTheme.bodyText2),
                             leading: Text("${state.listFestivals.items[index].score}",
                                 style: Theme.of(context).textTheme.bodyText2),
-                            trailing: Icon(Icons.arrow_forward_rounded),
+                            trailing: const Icon(Icons.arrow_forward_rounded),
                             onTap: () {
                               Navigator.push(context,
                                   MaterialPageRoute(
