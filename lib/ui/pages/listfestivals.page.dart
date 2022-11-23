@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,6 +38,7 @@ class ListFestivalsPage extends StatelessWidget {
                   onPressed: (){
                     String kw = textEditingController.text;
                     context.read<FestivalsBloc>().add(SearchFestivalsEvent(keyword: kw));
+                    textEditingController.clear();
                   },
                   icon: const Icon(Icons.search),
                 )
@@ -67,15 +69,30 @@ class ListFestivalsPage extends StatelessWidget {
                         itemBuilder: (context, index) =>
                             ListTile(
                               title: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(state.listFestivals.items[index].login,
-                                  style: Theme.of(context).textTheme.headline6,),
+                                  Icon(CupertinoIcons.heart, color: Theme.of(context).primaryColor,),
+                                  const SizedBox(width: 20,),
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text(state.listFestivals.items[index].login,
+                                          style: TextStyle(color: Theme.of(context).primaryColor,
+                                          fontSize: 33)),
+                                        Text(state.listFestivals.items[index].url,
+                                            style: Theme.of(context).textTheme.bodyText2),
+                                        Text("Score: ${state.listFestivals.items[index].score}",
+                                            style: Theme.of(context).textTheme.bodyText2),
+                                      ],
+                                    ),
+                                  ),
+                                  Icon(Icons.arrow_right, color: Theme.of(context).primaryColor,),
                                 ],
                               ),
                             ),
                         separatorBuilder: (context,index){
-                          return const Divider(
+                          return Divider(
+                            color: Theme.of(context).primaryColor,
+                            thickness: 1,
                             height: 2,
                           );
                         },
