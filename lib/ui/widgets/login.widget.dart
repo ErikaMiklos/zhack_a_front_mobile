@@ -87,16 +87,33 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                 ),
               ],
             ),
-            const SizedBox(height: 10,),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-              SocialLoginButton(
-                buttonType: SocialLoginButtonType.facebook,
-                onPressed: () {},
+            const SizedBox(height: 60,),
+            Expanded(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 50,
+                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: SocialLoginButton(
+                        buttonType: SocialLoginButtonType.facebook,
+                        onPressed: () {},
+                      ),
+                    ),
+                    const SizedBox(height: 30,),
+                    Container(
+                      height: 50,
+                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                      child: SocialLoginButton(
+                        buttonType: SocialLoginButtonType.google,
+                        onPressed: () {},
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              ]
-            )
+            ),
           ],
         ));
   }

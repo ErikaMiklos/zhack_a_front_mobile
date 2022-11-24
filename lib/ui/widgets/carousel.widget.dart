@@ -30,7 +30,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
       },
         options: CarouselOptions(
           height: 200,
-          autoPlay: false,
+          autoPlay: true,
           autoPlayInterval: const Duration(seconds: 3),
           autoPlayAnimationDuration: const Duration(milliseconds: 600)
         ),
