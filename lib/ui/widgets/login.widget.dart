@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../pages/listfestivals.page.dart';
-import '../pages/listgithubevents.page.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
