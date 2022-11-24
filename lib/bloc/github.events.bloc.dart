@@ -5,24 +5,30 @@ import '../model/github.events.model.dart';
 //Events
 abstract class GitHubEventsEvent{}
 class GetGitHubEventsEvent extends GitHubEventsEvent{}
+class SearchGitHubEventsEvent extends GitHubEventsEvent{
+  final String keyword;
+  //constructor
+  SearchGitHubEventsEvent({required this.keyword});
+}
 
 //States
 abstract class GitHubEventsState{}
 //success state
-class GetGitHubEventsSuccessState extends GitHubEventsState{
+class GitHubEventsSuccessState extends GitHubEventsState{
+  //model
   final GitHubEvents gitHubEvents;
   //constructor
-  GetGitHubEventsSuccessState({
+  GitHubEventsSuccessState({
     required this.gitHubEvents
   });
 }
 //loading state
-class GetGitHubEventsLoadingState extends GitHubEventsState{}
+class GitHubEventsLoadingState extends GitHubEventsState{}
 //error state
-class GetGitHubEventsErrorState extends GitHubEventsState{
+class GitHubEventsErrorState extends GitHubEventsState{
   final String errorMessage;
   //constructor
-  GetGitHubEventsErrorState({
+  GitHubEventsErrorState({
     required this.errorMessage
   });
 }
@@ -35,12 +41,21 @@ class GitHubEventsBloc extends Bloc<GitHubEventsEvent,GitHubEventsState>{
   //constructor
   GitHubEventsBloc() : super(GitHubEventsInitialState()){
     on((GetGitHubEventsEvent event, emit) async{
-      emit(GetGitHubEventsLoadingState());
+      emit(GitHubEventsLoadingState());
       try {
         GitHubEvents gitHubEvents = await gitHubEventsRepository.getEvents();
-        emit(GetGitHubEventsSuccessState(gitHubEvents: gitHubEvents));
+        emit(GitHubEventsSuccessState(gitHubEvents: gitHubEvents));
       } catch (e) {
-        emit(GetGitHubEventsErrorState(errorMessage: e.toString()));
+        emit(GitHubEventsErrorState(errorMessage: e.toString()));
+      }
+    });
+    on((SearchGitHubEventsEvent event, emit) async{
+      emit(GitHubEventsLoadingState());
+      try {
+        GitHubEvents gitHubEvents = await gitHubEventsRepository.searchEvents(event.keyword, 0, 20);
+        emit(GitHubEventsSuccessState(gitHubEvents: gitHubEvents));
+      } catch (e) {
+        emit(GitHubEventsErrorState(errorMessage: e.toString()));
       }
     });
   }

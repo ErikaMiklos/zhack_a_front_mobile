@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
 import '../pages/listfestivals.page.dart';
+import '../pages/listgithubevents.page.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key? key}) : super(key: key);
@@ -69,7 +70,7 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
                     Navigator.pop(context);
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ListFestivalsPage()),
+                        MaterialPageRoute(builder: (context) => const ListFestivalsPage()),
                     );
                   }
                 )
@@ -88,31 +89,26 @@ class _MyStatefulWidgetState extends State<LoginWidget> {
               ],
             ),
             const SizedBox(height: 60,),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: SocialLoginButton(
-                        buttonType: SocialLoginButtonType.facebook,
-                        onPressed: () {},
-                      ),
-                    ),
-                    const SizedBox(height: 30,),
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                      child: SocialLoginButton(
-                        buttonType: SocialLoginButtonType.google,
-                        onPressed: () {},
-                      ),
-                    ),
-                  ],
+            Column(
+              children: <Widget>[
+                Container(
+                  height: 50,
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: SocialLoginButton(
+                    buttonType: SocialLoginButtonType.facebook,
+                    onPressed: () {},
+                  ),
                 ),
-              ),
+                const SizedBox(height: 30,),
+                Container(
+                  height: 50,
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: SocialLoginButton(
+                    buttonType: SocialLoginButtonType.google,
+                    onPressed: () {},
+                  ),
+                ),
+              ],
             ),
           ],
         ));
