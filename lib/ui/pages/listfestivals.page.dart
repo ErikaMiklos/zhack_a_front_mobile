@@ -43,6 +43,12 @@ class ListFestivalsPage extends StatelessWidget {
                     textEditingController.clear();
                   },
                   icon: const Icon(Icons.search),
+                ),
+                IconButton(
+                  onPressed: (){
+                    context.read<FestivalsBloc>().add(GetFestivalsEvent());
+                  },
+                  icon: const Icon(Icons.all_inbox),
                 )
               ],
             ),

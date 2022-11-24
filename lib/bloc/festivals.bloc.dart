@@ -10,6 +10,8 @@ class SearchFestivalsEvent extends FestivalsEvent{
   SearchFestivalsEvent({required this.keyword});
 }
 
+class GetFestivalsEvent extends FestivalsEvent{}
+
 //States
 abstract class FestivalsState{}
 class SearchFestivalsSuccessState extends FestivalsState{
@@ -41,6 +43,15 @@ class FestivalsBloc extends Bloc<FestivalsEvent,FestivalsState>{
       emit(SearchFestivalsLoadingState());
       try {
         ListFestivals listFestivals = await festivalsRepository.searchFestivals(event.keyword, 0, 20);
+        emit(SearchFestivalsSuccessState(listFestivals: listFestivals));
+      } catch (e) {
+        emit(SearchFestivalsErrorState(errorMessage: e.toString()));
+      }
+    });
+    on((GetFestivalsEvent event, emit) async{
+      emit(SearchFestivalsLoadingState());
+      try {
+        ListFestivals listFestivals = await festivalsRepository.getFestivals();
         emit(SearchFestivalsSuccessState(listFestivals: listFestivals));
       } catch (e) {
         emit(SearchFestivalsErrorState(errorMessage: e.toString()));

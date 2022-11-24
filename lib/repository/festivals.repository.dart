@@ -19,4 +19,20 @@ class FestivalsRepository {
       return throw(e.toString());
     }
   }
+
+  Future<ListFestivals> getFestivals() async{
+    String url = "https://api.github.com/search/users?q=festivals";
+    try{
+      http.Response response = await http.get(Uri.parse(url));
+      if(response.statusCode == 200) {
+        Map<String,dynamic> listFestivalsMap = json.decode(response.body);
+        ListFestivals listFestivals = ListFestivals.fromJson(listFestivalsMap);
+        return listFestivals;
+      } else {
+        return throw("Err => ${response.statusCode}");
+      }
+    } catch(e){
+      return throw(e.toString());
+    }
+  }
 }
